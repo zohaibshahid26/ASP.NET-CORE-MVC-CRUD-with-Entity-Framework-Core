@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Lab3.Models.Product>
+
+@{
+    ViewData["Title"] = "Products Management";
+}
+
+<h2>@ViewData["Title"]</h2>
+<a asp-action="Create" class="btn btn-primary">Add Product</a>
+
+@if (!Model.Any())
+{
+    <h2 class="mt-4">No products found.</h2>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.Id</td>
+                    <td>@product.Name</td>
+                    <td>@product.Price.ToString("C2")</td>
+                    <td>@product.Description</td>
+                    <td>
+                        <a asp-action="Update" asp-route-id="@product.Id" class="btn btn-warning">Update</a>
+                        <form asp-action="Delete" asp-route-id="@product.Id" method="post" style="display: inline;">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this product?');">
+                                Delete
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    th {
+        background-color: #4CAF50;
+        color: black;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .btn {
+        padding: 5px 10px;
+        margin-right: 5px;
+    }
+
+    .mt-4 {
+        margin-top: 16px;
+    }
+</style>

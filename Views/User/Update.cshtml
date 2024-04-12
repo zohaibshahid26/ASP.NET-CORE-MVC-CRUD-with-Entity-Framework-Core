@@ -1,0 +1,82 @@
+﻿@model Lab3.Models.User
+
+@{
+    ViewData["Title"] = "Update User";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Update" method="post" class="form-style">
+    @Html.AntiForgeryToken()
+
+    <div>
+        @Html.LabelFor(model => model.UserId, "User ID")
+        @Html.EditorFor(model => model.UserId, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+        @Html.ValidationMessageFor(model => model.UserId)
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.UserName, "User Name")
+        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+        @Html.ValidationMessageFor(model => model.UserName)
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.Email, "Email")
+        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @type = "email", @required = "required" } })
+        @Html.ValidationMessageFor(model => model.Email)
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.Password, "Password")
+        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @type = "password", @required = "required" } })
+        @Html.ValidationMessageFor(model => model.Password)
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.Role, "Role")
+        @Html.EditorFor(model => model.Role, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+        @Html.ValidationMessageFor(model => model.Role)
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.PhoneNumber, "Phone Number")
+        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @type = "tel", @required = "required" } })
+        @Html.ValidationMessageFor(model => model.PhoneNumber)
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.Address, "Address")
+        @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+        @Html.ValidationMessageFor(model => model.Address)
+    </div>
+
+    <input type="submit" value="Update" class="btn btn-primary" />
+</form>
+
+<style>
+    .form-style {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+    }
+
+    label {
+        display: block;
+        margin-top: 20px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+    }
+
+    .btn {
+        margin-top: 20px;
+        padding: 10px 20px;
+    }
+</style>

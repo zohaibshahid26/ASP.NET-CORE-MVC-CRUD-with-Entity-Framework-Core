@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Lab3.Models.Subscription>
+
+@{
+    ViewData["Title"] = "Subscriptions Management";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<a asp-action="Create" class="btn btn-primary">Add Subscription</a>
+
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var subscription in Model)
+            {
+                <tr>
+                    <td>@subscription.Id</td>
+                    <td>@subscription.Name</td>
+                    <td>@subscription.Price.ToString("C2")</td>
+                    <td>@subscription.Description</td>
+                    <td>
+                        <a asp-action="Update" asp-route-id="@subscription.Id" class="btn btn-warning">Update</a>
+                        <form asp-action="Delete" asp-route-id="@subscription.Id" method="post" style="display: inline;">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this subscription?');">
+                                Delete
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p class="mt-4">No subscription packages available.</p>
+}
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    th {
+        background-color: #4CAF50;
+        color: black;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .btn {
+        padding: 5px 10px;
+        margin-right: 5px;
+    }
+
+    .mt-4 {
+        margin-top: 16px;
+    }
+</style>
