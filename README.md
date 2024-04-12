@@ -1,1 +1,1 @@
-# ASP.NET CORE MVC CRUD with Entity Framwork Core
+# ASP.NET CORE MVC CRUD with Entity Framework Core
