@@ -1,4 +1,4 @@
-namespace Lab3.Models
+namespace MVCCRUD.Models
 {
     public class ErrorViewModel
     {

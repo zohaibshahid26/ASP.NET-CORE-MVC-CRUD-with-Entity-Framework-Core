@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Lab3.Migrations
+namespace MVCCRUD.Migrations
 {
     /// <inheritdoc />
     public partial class InitialMigration : Migration

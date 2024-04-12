@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Lab3.Models;
+using MVCCRUD.Models;
 
-namespace Lab3.Data
+namespace MVCCRUD.Data
 {
     public class ApplicationDbContext : DbContext
     {

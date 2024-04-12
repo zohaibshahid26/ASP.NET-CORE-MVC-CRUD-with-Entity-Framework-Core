@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Lab3.Models;
-using Lab3.Data;
+using MVCCRUD.Models;
+using MVCCRUD.Data;
 using Microsoft.EntityFrameworkCore;
-namespace Lab3.Controllers
+namespace MVCCRUD.Controllers
 {
     // Sibscription Controller
     public class SubscriptionController : Controller

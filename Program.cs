@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Lab3.Data;
+using MVCCRUD.Data;
 
 
 var builder = WebApplication.CreateBuilder(args);

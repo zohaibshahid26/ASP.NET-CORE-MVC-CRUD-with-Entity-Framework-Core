@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-namespace Lab3.Models
+namespace MVCCRUD.Models
 {
     public class Subscription
     {

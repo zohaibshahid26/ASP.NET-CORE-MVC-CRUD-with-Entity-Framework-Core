@@ -1,8 +1,8 @@
-using Lab3.Models;
+using MVCCRUD.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace Lab3.Controllers
+namespace MVCCRUD.Controllers
 {
     public class HomeController : Controller
     {
